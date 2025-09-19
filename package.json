@@ -1,0 +1,62 @@
+{
+    "name": "jupyter-force-terminate-cell",
+    "displayName": "Jupyter Force Terminate Cell",
+    "description": "Simple extension that adds a command to force terminate a selected cell, because sometimes hitting the terminate button doesn't do anything.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.104.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "jupyter-force-terminate-cell.terminateCell",
+                "title": "Force Terminate",
+                "icon": "$(extensions-warning-message~spin)"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "jupyter-force-terminate-cell.terminateCell",
+                "key": "ctrl+k ctrl+e"
+            }
+        ],
+        "menus": {
+            "notebook/cell/title": [
+                {
+                    "command": "jupyter-force-terminate-cell.terminateCell",
+                    "group": "inline@1" 
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run package",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "npm run compile-tests && npm run compile && npm run lint",
+        "lint": "eslint src",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.104.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "22.x",
+        "@typescript-eslint/eslint-plugin": "^8.42.0",
+        "@typescript-eslint/parser": "^8.42.0",
+        "eslint": "^9.34.0",
+        "typescript": "^5.9.2",
+        "ts-loader": "^9.5.4",
+        "webpack": "^5.101.3",
+        "webpack-cli": "^6.0.1",
+        "@vscode/test-cli": "^0.0.11",
+        "@vscode/test-electron": "^2.5.2"
+    }
+}
