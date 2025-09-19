@@ -3,6 +3,10 @@
     "displayName": "Jupyter Force Terminate Cell",
     "description": "Simple extension that adds a command to force terminate a selected cell, because sometimes hitting the terminate button doesn't do anything.",
     "version": "0.0.1",
+    "publisher": "luke-callaghan",
+    "repository": {
+        "url": "https://github.com/Luke-Callaghan23/jupyter-force-terminate-cell"
+    },
     "engines": {
         "vscode": "^1.104.0"
     },
